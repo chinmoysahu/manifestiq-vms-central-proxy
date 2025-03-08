@@ -1,0 +1,33 @@
+{
+  "name": "shinobi-management-server",
+  "description": "Central Management for Multiple Shinobi Servers",
+  "version": "1.0.0",
+  "main": "index.js",
+  "dependencies": {
+    "bson": "^6.9.0",
+    "cookie-parser": "^1.4.6",
+    "cws": "^2.0.0",
+    "ejs": "^3.1.10",
+    "express": "^4.21.1",
+    "node-fetch": "^2.6.7",
+    "socket.io": "^4.8.1",
+    "socket.io-client": "^4.8.1"
+  },
+  "scripts": {
+    "postinstall": "sed -i 's/\r$//' tools/postinstall.sh && sh tools/postinstall.sh"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/Shinobi-Systems/Shinobi-Management-Server.git"
+  },
+  "keywords": [
+    "shinobi",
+    "management"
+  ],
+  "author": "Moe Alam, Shinobi Systems",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://gitlab.com/Shinobi-Systems/Shinobi-Management-Server/issues"
+  },
+  "homepage": "https://gitlab.com/Shinobi-Systems/Shinobi-Management-Server#readme"
+}

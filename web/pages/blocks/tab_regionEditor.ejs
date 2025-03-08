@@ -1,0 +1,15 @@
+<div id="tab-regionEditor" class="container-fluid py-4 page-tab" style="display:none">
+    <form class="dark row">
+        <%  Object.keys(pageLayouts['Region Editor'].blocks).forEach(function(blockKey) { -%>
+        <%- include('drawBlock', {
+                theBlock: pageLayouts['Region Editor'].blocks[blockKey]
+            }) %>
+        <%  }) -%>
+          <div class="col-md-12">
+          <%- include('stickySubmitBar'); %>
+          </div>
+    </form>
+    <script src="libs/vendor/jquery.canvasAreaDraw.js"></script>
+    <link href="libs/css/dashboard.regionEditor.css" rel="stylesheet" />
+    <script src="libs/js/dashboard.regionEditor.js"></script>
+</div>

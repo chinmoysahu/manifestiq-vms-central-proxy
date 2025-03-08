@@ -1,0 +1,25 @@
+<%
+    const tabId = 'schedules'
+    const pageLayoutName = 'Schedules'
+    const stylesToLoad = []
+    const scriptsToLoad = ['schedules']
+%>
+<div id="tab-<%- tabId %>" class="container-fluid py-4 page-tab" style="display:none">
+    <form class="dark row">
+        <%  const pageLayoutBlocks = pageLayouts[pageLayoutName].blocks;
+            Object.keys(pageLayoutBlocks).forEach(function(blockKey) { -%>
+                <%- include('drawBlock', {
+                    theBlock: pageLayoutBlocks[blockKey]
+                }) %>
+        <%  }) -%>
+        <div class="col-md-12">
+            <%- include('stickySubmitBar'); %>
+        </div>
+    </form>
+    <% for(styleSheet of stylesToLoad){ %>
+        <link href="libs/css/dashboard.<%- styleSheet %>.css" rel="stylesheet" />
+    <% } %>
+    <% for(aScript of scriptsToLoad){ %>
+        <script src="libs/js/dashboard.<%- aScript %>.js"></script>
+    <% } %>
+</div>

@@ -1,0 +1,7 @@
+const s = require('./libs/process.js')(process,__dirname)
+const { config } = require('./libs/config.js')
+const lang = require('./libs/language.js')(config)
+require('./libs/branding.js')(config,lang)
+const { io, app } = require('./libs/webServer.js')(s,config,lang)
+require('./libs/customAutoLoad.js')(s,config,lang,app,io)
+require('./node_modules/shinobi-peer-server/index.js')(s,config,app,io,lang)

@@ -1,0 +1,26 @@
+<%
+    const tabId = 'userPermissions'
+    const pageLayoutName = 'User Permissions'
+    const stylesToLoad = []
+    const scriptsToLoad = ['userPermissions']
+%>
+<div id="tab-<%- tabId %>" class="container-fluid py-4 page-tab" style="display:none">
+    <form class="dark">
+        <%  const pageLayoutBlocks = pageLayouts[pageLayoutName].blocks;
+            Object.keys(pageLayoutBlocks).forEach(function(blockKey) { -%>
+                <%- include('drawBlock', {
+                    theBlock: pageLayoutBlocks[blockKey]
+                }) %>
+        <%  }) -%>
+    </form>
+    <div id="apiKeyShinobiAssociation"></div>
+    <div class="sticky-bar p-3 d-flex flex-row">
+        <button type="button" class="btn btn-sm btn-success submit" style="min-width: 150px"><i class="fa fa-check"></i> <%- lang.Save%></button>
+    </div>
+    <% for(styleSheet of stylesToLoad){ %>
+        <link href="libs/css/dashboard.<%- styleSheet %>.css" rel="stylesheet" />
+    <% } %>
+    <% for(aScript of scriptsToLoad){ %>
+        <script src="libs/js/dashboard.<%- aScript %>.js"></script>
+    <% } %>
+</div>

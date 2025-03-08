@@ -1,0 +1,13 @@
+<div id="tab-timeline" style="display:none;" class="container-fluid p-0 page-tab flex-direction-column">
+        <%
+        var pageName = 'Timeline';
+        Object.keys(pageLayouts[pageName].blocks).forEach(function(blockKey) { -%>
+         <%- include('drawBlock', {
+               theBlock: pageLayouts[pageName].blocks[blockKey]
+             }) %>
+       <%  }) -%>
+    <link href="libs/vendor/vis/vis.min.css" rel="stylesheet" />
+    <script src="libs/vendor/vis/vis.min.js"></script>
+    <link href="libs/css/dashboard.timeline.css" rel="stylesheet" />
+    <script src="libs/js/dashboard.timeline.js"></script>
+</div>

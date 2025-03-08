@@ -1,0 +1,48 @@
+<div id="tab-superSystemControl" class="container-fluid py-4 page-tab" style="display:none">
+    <div class="col-md-10 mx-auto">
+        <div class="card mt-4">
+           <div class="card-header p-3">
+              <h5 class="mb-0"><%- lang['Mount Manager'] %></h5>
+           </div>
+           <div class="card-body p-3 pb-0">
+                <div class="row">
+                    <div class="form-group">
+                        <label><%- lang["Server"] %></label>
+                        <select class="form-control peerConnectKeys_list"></select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="mb-4 btn-group btn-group-justified">
+                        <a href="#" class="btn btn-primary" system="deleteLogs">
+                            <i class="fa fa-trash-o"></i> <%-lang['Delete']%> <%-lang['Logs']%>
+                        </a>
+                        <a href="#" class="btn btn-primary" restart="system">
+                            <i class="fa fa-retweet"></i> <%- lang['Restart Core'] %>
+                        </a>
+                        <% if(!config.thisIsDocker){ %>
+                            <a href="#" class="btn btn-primary" system="update">
+                                <i class="fa fa-retweet"></i> <%- lang['Update'] %>
+                            </a>
+                        <% } %>
+                        <a href="#" class="btn btn-primary" restart="logs">
+                            <i class="fa fa-retweet"></i> <%- lang['Flush PM2 Logs'] %>
+                        </a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-5">
+                        <div class="card bg-dark shadow mb-3">
+                            <div class="super-system-info text-white card-body mb-0"></div>
+                        </div>
+                    </div>
+                    <div id="logs" class="col-md-7">
+                        <div class="form-group-group red" style="height:400px;overflow:auto">
+                            <div id="logs-list""></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="libs/js/dashboard.superSystemControl.js" type="text/javascript"></script>
+</div>

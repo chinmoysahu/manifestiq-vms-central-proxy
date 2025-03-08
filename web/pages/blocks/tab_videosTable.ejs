@@ -1,0 +1,33 @@
+<div id="tab-videosTable" style="display:none;" class="container-fluid py-4 page-tab">
+    <div class="row">
+        <% var pageBlocks = pageLayouts['Videos Table'].blocks; %>
+        <%  Object.keys(pageBlocks).forEach(function(blockKey) { -%>
+            <%- include('drawBlock', {
+                theBlock: pageBlocks[blockKey]
+            }) %>
+        <%  }) -%>
+    </div>
+    <div style="margin-bottom: 50px;"></div>
+    <h4 class="sticky-bar p-3 d-flex flex-row">
+        <div>
+            <div class="dropdown">
+              <button class="btn btn-sm btn-primary dropdown-toggle" type="button" id="monitorsListOptions" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="fa fa-bars"></i>
+              </button>
+              <ul class="dropdown-menu shadow-lg" aria-labelledby="monitorsListOptions">
+                <li><a class="dropdown-item download-selected-videos cursor-pointer"><%- lang.Download %></a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item archive-selected-videos cursor-pointer"><%- lang.Archive %></a></li>
+                <li><a class="dropdown-item unarchive-selected-videos cursor-pointer"><%- lang.Unarchive %></a></li>
+                <li><a class="dropdown-item compress-selected-videos cursor-pointer"><%- lang.Compress %></a></li>
+                <li><a class="dropdown-item zip-selected-videos cursor-pointer"><%- lang['Zip and Download'] %></a></li>
+                <li><a class="dropdown-item merge-selected-videos cursor-pointer"><%- lang['Merge'] %></a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item delete-selected-videos cursor-pointer"><%- lang.Delete %></a></li>
+              </ul>
+            </div>
+        </div>
+    </h4>
+    <link href="libs/css/dashboard.videosTable.css" rel="stylesheet" />
+    <script src="libs/js/dashboard.videosTable.js"></script>
+</div>

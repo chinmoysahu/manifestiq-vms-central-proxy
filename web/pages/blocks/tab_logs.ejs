@@ -1,0 +1,10 @@
+<div id="tab-logs" class="container-fluid py-4 page-tab" style="display:none">
+    <form class="dark row">
+        <%  Object.keys(pageLayouts['Logs'].blocks).forEach(function(blockKey) { -%>
+        <%- include('drawBlock', {
+                theBlock: pageLayouts['Logs'].blocks[blockKey]
+            }) %>
+        <%  }) -%>
+    </form>
+    <script src="libs/js/dashboard.logs.js"></script>
+</div>

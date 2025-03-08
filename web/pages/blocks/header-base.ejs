@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <%- include('./header-favicon.ejs') %>
+  <title><%- config.applicationName || lang.applicationName || lang.Shinobi %></title>
+  <!--     Fonts and icons     -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+  <link href="libs/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+  <!-- <link href="libs/vendor/font-awesome/v5/css/fontawesome.min.css" rel="stylesheet" /> -->
+  <link href="libs/vendor/jquery-ui/jquery-ui.min.css" rel="stylesheet" />
+  <link href="libs/css/dashboard.paddings.css" rel="stylesheet" />
+  <link href="libs/vendor/argon/argon-dashboard.css?v=2.0.5" rel="stylesheet" />
+  <link href="libs/vendor/pnotify/pnotify.custom.min.css" rel="stylesheet" />
+  <link href="libs/vendor/tree/tree.css" rel="stylesheet" />
+  <!-- JS Files -->
+  <script src="libs/vendor/jquery.min.js"></script>
+  <script src="libs/vendor/jquery-ui/jquery-ui.min.js"></script>
+  <script src="libs/vendor/jquery.serialize.js"></script>
+  <script src="libs/vendor/pnotify/pnotify.custom.min.js"></script>
+  <script src="libs/vendor/moment-with-locales.js"></script>
+  <script src="libs/vendor/popper.min.js"></script>
+  <script src="libs/vendor/bootstrap.min.js"></script>
+  <script src="libs/vendor/jszip.min.js"></script>
+</head>
+<script>var applicationName = `<%- config.applicationName || lang.applicationName || lang.Shinobi %>`</script>
+<script>var lang = <%- JSON.stringify(lang) %></script>
+<div style="display:none;" id="temp"></div>

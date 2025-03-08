@@ -1,0 +1,36 @@
+module.exports = (config,lang) => {
+    return {
+        "0": lang["Disabled"],
+        "1": lang["Starting"],
+        "2": lang["Watching"],
+        "3": lang["Recording"],
+        "4": lang["Restarting"],
+        "5": lang["Stopped"],
+        "6": lang["Idle"],
+        "7": lang["Died"],
+        "8": lang["Stopping"],
+        "9": lang["Started"],
+        // colors
+        "c0": "grey",
+        "c1": "#7fafe9",
+        "c2": "#3b9bff",
+        "c3": "#df4141",
+        "c4": "yellow",
+        "c5": "grey",
+        "c6": "grey",
+        "c7": "#fb6340",
+        "c8": "orange",
+        "c9": "#1b54ef",
+        // icons
+        "i0": "circle-o",
+        "i1": "dot-circle-o",
+        "i2": "eercast",
+        "i3": "circle",
+        "i4": "spinner",
+        "i5": "square",
+        "i6": "circle-o",
+        "i7": "close",
+        "i8": "square-o",
+        "i9": "circle",
+    }
+}

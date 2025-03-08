@@ -1,0 +1,22 @@
+<%
+    const tabId = 'subAccountManager'
+    const pageLayoutName = 'Sub-Account Manager'
+    const stylesToLoad = []
+    const scriptsToLoad = ['subAccountManager']
+%>
+<div id="tab-<%- tabId %>" class="container-fluid py-4 page-tab" style="display:none">
+    <div class="row">
+        <%  const pageLayoutBlocks = pageLayouts[pageLayoutName].blocks;
+            Object.keys(pageLayoutBlocks).forEach(function(blockKey) { -%>
+                <%- include('drawBlock', {
+                    theBlock: pageLayoutBlocks[blockKey]
+                }) %>
+        <%  }) -%>
+    </div>
+    <% for(styleSheet of stylesToLoad){ %>
+        <link href="libs/css/dashboard.<%- styleSheet %>.css" rel="stylesheet" />
+    <% } %>
+    <% for(aScript of scriptsToLoad){ %>
+        <script src="libs/js/dashboard.<%- aScript %>.js"></script>
+    <% } %>
+</div>

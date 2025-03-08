@@ -1,0 +1,17 @@
+<div id="tab-accountSettings" style="display:none;" class="container-fluid py-4 page-tab">
+    <form class="dark">
+        <div class="card form-group-group p-3 bg-dark mb-3 shadow green">
+            <h4 class="user-mail"></h4>
+            <div>
+                <span class="badge badge-info"><%- lang['Group Key'] %> : <span class="user-groupkey"></span></span>
+            </div>
+        </div>
+        <% Object.keys(pageLayouts['Account Settings'].blocks).forEach(function(blockKey) { -%>
+            <%- include('drawBlock', {
+                    theBlock: pageLayouts['Account Settings'].blocks[blockKey],
+                }) %>
+            <%  }) -%>
+        <%- include('stickySubmitBar'); %>
+    </form>
+    <script src="libs/js/dashboard.accountSettings.js"></script>
+</div>

@@ -1,0 +1,95 @@
+<main id="pageTabContainer" class="main-content position-relative border-radius-lg ps flex-direction-column">
+    <script>
+        var webPortForPeers = <%- config.webPortForPeers %>;
+        var shinobiServerHost = `<%- config.shinobiServerHost || '' %>` || `${location.protocol}//${location.hostname}:${webPortForPeers}`;
+        var peerPort = <%- config.peerPort %>;
+        var userHasSubscribed = <%- !!config.userHasSubscribed %>;
+        var pageLayouts = <%- JSON.stringify(pageLayouts) %>
+        var isSubAccount = <%- !!user.sub %>;
+        var myCredentials = <%- JSON.stringify(permissions.credentials || {}) %>;
+        var permissions = <%- JSON.stringify(permissions) %>;
+    </script>
+    <script src="libs/js/dashboard.extenders.js"></script>
+    <script src="libs/js/dashboard.tabHandle.js"></script>
+   <%#- include('./index-navbar.ejs') %>
+   <% if(user.sub && permissions.all !== '1'){
+       const selectedPages = permissions.pages || []; %>
+       <% for(tabName of selectedPages){ %>
+           <%- include(`./tab_${tabName}.ejs`) %>
+       <% } %>
+   <% }else{ %>
+       <%- include('./tab_home.ejs') %>
+       <%- include('./tab_recentVideos.ejs') %>
+       <%- include('./tab_serverCredentials.ejs') %>
+       <%- include('./tab_videosTable.ejs') %>
+       <%- include('./tab_monitorsList.ejs') %>
+       <%- include('./tab_mountManager.ejs') %>
+       <%- include('./tab_liveGrid.ejs') %>
+       <%- include('./tab_monitorSettings.ejs') %>
+       <%- include('./tab_regionEditor.ejs') %>
+       <%- include('./tab_onvifScanner.ejs') %>
+       <%- include('./tab_superSystemControl.ejs') %>
+       <%- include('./tab_timeline.ejs') %>
+       <%- include('./tab_accountSettings.ejs') %>
+       <%- include('./tab_logs.ejs') %>
+       <%- include('./tab_apiKeys.ejs') %>
+       <%- include('./tab_fileBin.ejs') %>
+       <%- include('./tab_eventFilters.ejs') %>
+       <%- include('./tab_monitorStates.ejs') %>
+       <%- include('./tab_schedules.ejs') %>
+       <%- include('./tab_monitorMap.ejs') %>
+       <%- include('./tab_onvifDeviceManager.ejs') %>
+       <%- include('./tab_timelapseViewer.ejs') %>
+       <%- include('./tab_subAccountManager.ejs') %>
+       <%- include('./tab_permissionSets.ejs') %>
+       <%- include('./tab_userPermissions.ejs') %>
+       <%- include('./tab_userAccounts.ejs') %>
+   <% } %>
+   <% customAutoLoad.pages.forEach(function(block){ %>
+       <%- include(block) %>
+   <% }) %>
+   <%- include('./modal_serverPairForm.ejs') %>
+
+</main>
+<%- include('./confirm.ejs') %>
+<% customAutoLoad.PageBlocks.forEach(function(block){ %>
+    <%- include(block) %>
+<% }) %>
+<link href="libs/vendor/bootstrap-table/bootstrap-table.min.css" rel="stylesheet" />
+<link href="libs/vendor/daterangepicker/daterangepicker.css" rel="stylesheet" />
+<link href="libs/vendor/bootstrap5-tags/bootstrap-tagsinput.css" rel="stylesheet" />
+<link href="libs/vendor/leaflet/leaflet.css" rel="stylesheet" />
+<link href="libs/css/dashboard.tabHandle.css" rel="stylesheet" />
+<link href="libs/css/dashboard.videoPlayer.css" rel="stylesheet" />
+<link href="libs/css/dashboard.home.css" rel="stylesheet" />
+<link href="libs/css/dashboard.base.css" rel="stylesheet" />
+<link href="libs/css/dashboard.forms.css" rel="stylesheet" />
+<link href="libs/css/dashboard.sideMenu.css" rel="stylesheet" />
+<script src="libs/vendor/socket.io.min.js"></script>
+<script src="libs/vendor/bootstrap-table/bootstrap-table.min.js"></script>
+<script src="libs/vendor/bootstrap5-tags/bootstrap-tagsinput.min.js"></script>
+<script src="libs/vendor/daterangepicker/daterangepicker.js"></script>
+<script src="libs/vendor/leaflet/leaflet.js"></script>
+<script src="libs/vendor/leaflet/markerRotator.js"></script>
+<script src="libs/vendor/placeholder.js"></script>
+<script src="libs/vendor/tree/tree.js"></script>
+<script src="libs/js/dashboard.monitorMap.utils.js"></script>
+<script src="libs/js/dashboard.socket.js"></script>
+<script src="libs/js/dashboard.utils.js"></script>
+<script src="libs/js/dashboard.savedIdentifiers.js"></script>
+<script src="libs/js/dashboard.shinobiUtils.js"></script>
+<script src="libs/js/dashboard.shinobiWebsocket.js"></script>
+<script src="libs/js/dashboard.shinobiSuperUtils.js"></script>
+<script src="libs/js/dashboard.shinobiSuperMountManagerAPI.js"></script>
+<script src="libs/js/dashboard.sideMenu.js"></script>
+<script src="libs/js/dashboard.main.js"></script>
+<script src="libs/js/dashboard.videoPlayer.js"></script>
+<script src="libs/js/dashboard.videos.buttons.js"></script>
+<script src="libs/js/dashboard.zipAndDownload.js"></script>
+<script src="libs/js/dashboard.startup.js"></script>
+<% customAutoLoad.LibsJs.forEach(function(lib){ %>
+    <script src="<%-window.libURL%>libs/js/<%-lib%>"></script>
+<% }) %>
+<% customAutoLoad.AssetsJs.forEach(function(lib){ %>
+    <script src="<%-window.libURL%>assets/js/<%-lib%>"></script>
+<% }) %>

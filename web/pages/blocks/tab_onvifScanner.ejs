@@ -1,0 +1,11 @@
+<div id="tab-onvifScanner" style="display:none;" class="container-fluid py-4 page-tab">
+    <form class="dark row">
+        <%  Object.keys(pageLayouts['ONVIF Scanner'].blocks).forEach(function(blockKey) { -%>
+        <%- include('drawBlock', {
+                theBlock: pageLayouts['ONVIF Scanner'].blocks[blockKey]
+            }) %>
+        <%  }) -%>
+    </form>
+</div>
+<link href="libs/css/dashboard.onvifScanner.css" rel="stylesheet" />
+<script src="libs/js/dashboard.onvifScanner.js"></script>

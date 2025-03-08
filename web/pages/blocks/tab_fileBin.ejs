@@ -1,0 +1,39 @@
+<%
+    const tabId = 'fileBin'
+    const pageLayoutName = 'FileBin'
+    const stylesToLoad = []
+    const scriptsToLoad = ['fileBin']
+%>
+<div id="tab-<%- tabId %>" class="container-fluid py-4 page-tab" style="display:none">
+    <div class="dark row">
+        <%  const pageLayoutBlocks = pageLayouts[pageLayoutName].blocks;
+            Object.keys(pageLayoutBlocks).forEach(function(blockKey) { -%>
+                <%- include('drawBlock', {
+                    theBlock: pageLayoutBlocks[blockKey]
+                }) %>
+        <%  }) -%>
+    </div>
+    <div style="margin-bottom: 50px;"></div>
+    <h4 class="sticky-bar p-3 d-flex flex-row">
+        <div>
+            <div class="dropdown">
+              <button class="btn btn-sm btn-primary dropdown-toggle" type="button" id="monitorsListOptions" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="fa fa-bars"></i>
+              </button>
+              <ul class="dropdown-menu shadow-lg" aria-labelledby="monitorsListOptions">
+                <li><a class="dropdown-item download-selected-videos cursor-pointer"><%- lang.Download %></a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item zip-selected-videos cursor-pointer"><%- lang['Zip and Download'] %></a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item delete-selected-videos cursor-pointer"><%- lang.Delete %></a></li>
+              </ul>
+            </div>
+        </div>
+    </h4>
+    <% for(styleSheet of stylesToLoad){ %>
+        <link href="libs/css/dashboard.<%- styleSheet %>.css" rel="stylesheet" />
+    <% } %>
+    <% for(aScript of scriptsToLoad){ %>
+        <script src="libs/js/dashboard.<%- aScript %>.js"></script>
+    <% } %>
+</div>
