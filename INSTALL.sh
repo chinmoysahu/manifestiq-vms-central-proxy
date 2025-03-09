@@ -44,6 +44,7 @@ if [ ! -d "mgmt" ]; then
                 exit 1
             fi
         fi
+        sudo apt-get update
         apt install zip
         # Check if Git is needed
         if [ ! -x "$(command -v git)" ]; then
@@ -70,42 +71,44 @@ if [ ! -d "mgmt" ]; then
             fi
         fi
     fi
-    theRepo=''
-    productName="Shinobi Professional (Pro)"
-    echo "What Branch would you like to use?"
-    echo "Default : main"
-    read theBranchChoice
-    if [ "$theBranchChoice" = "" ] ; then
-        echo "Getting the main Branch"
-        theBranch='main'
-    else
-        theBranch=$theBranchChoice
-    fi
-    # Download from Git repository
-    gitURL="https://github.com/chinmoysahu/manifestiq-vms-central-proxy$theRepo"
-    sudo git clone $gitURL.git -b $theBranch mgmt
-    # Enter Shinobi folder "/home/Shinobi"
-    cd mgmt
-    gitVersionNumber=$(git rev-parse HEAD)
-    theDateRightNow=$(date)
-    # write the version.json file for the main app to use
-    sudo touch version.json
-    sudo chmod 777 version.json
-    sudo echo '{"Product" : "'"$productName"'" , "Branch" : "'"$theBranch"'" , "Version" : "'"$gitVersionNumber"'" , "Date" : "'"$theDateRightNow"'" , "Repository" : "'"$gitURL"'"}' > version.json
-    echo "-------------------------------------"
-    echo "---------- Shinobi Systems ----------"
-    echo "Repository : $gitURL"
-    echo "Product : $productName"
-    echo "Branch : $theBranch"
-    echo "Version : $gitVersionNumber"
-    echo "Date : $theDateRightNow"
-    echo "-------------------------------------"
-    echo "-------------------------------------"
 else
     echo "!-----------------------------------!"
     echo "Shinobi already downloaded."
     cd mgmt
 fi
+
+theRepo=''
+productName="Shinobi Professional (Pro)"
+echo "What Branch would you like to use?"
+echo "Default : main"
+read theBranchChoice
+if [ "$theBranchChoice" = "" ] ; then
+    echo "Getting the main Branch"
+    theBranch='main'
+else
+    theBranch=$theBranchChoice
+fi
+# Download from Git repository
+gitURL="https://github.com/chinmoysahu/manifestiq-vms-central-proxy$theRepo"
+sudo git clone $gitURL.git -b $theBranch mgmt
+# Enter Shinobi folder "/home/Shinobi"
+cd mgmt
+gitVersionNumber=$(git rev-parse HEAD)
+theDateRightNow=$(date)
+# write the version.json file for the main app to use
+sudo touch version.json
+sudo chmod 777 version.json
+sudo echo '{"Product" : "'"$productName"'" , "Branch" : "'"$theBranch"'" , "Version" : "'"$gitVersionNumber"'" , "Date" : "'"$theDateRightNow"'" , "Repository" : "'"$gitURL"'"}' > version.json
+echo "-------------------------------------"
+echo "---------- Shinobi Systems ----------"
+echo "Repository : $gitURL"
+echo "Product : $productName"
+echo "Branch : $theBranch"
+echo "Version : $gitVersionNumber"
+echo "Date : $theDateRightNow"
+echo "-------------------------------------"
+echo "-------------------------------------"
+
 # # start the installer in the main app (or start shinobi if already installed)
 # echo "*-----------------------------------*"
 # sudo chmod +x INSTALL/start.sh
