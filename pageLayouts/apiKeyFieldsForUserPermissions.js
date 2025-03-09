@@ -69,6 +69,14 @@ module.exports = (config,lang) => {
                                       name: lang['Can Delete Videos'],
                                       value: 'delete_videos',
                                   },
+                                  {
+                                      name: lang['Can View Alarms'],
+                                      value: 'get_alarms',
+                                  },
+                                  {
+                                      name: lang['Can Edit Alarms'],
+                                      value: 'edit_alarms',
+                                  },
                               ].map(item => {return { label: item.name, name: item.value, key: 'apiKey-permissions-allowed' }})
                           }
                       ]

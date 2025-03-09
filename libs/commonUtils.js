@@ -73,8 +73,8 @@ async function fetchPost(url, body) {
     return response.json();
 }
 
-function generateMD5(theString) {
-    let hash = crypto.createHash('md5').update(theString).digest("hex")
+function generatePasswordHash(theString) {
+    let hash = crypto.createHash('sha256').update(theString).digest("hex")
     return hash;
 }
 
@@ -82,7 +82,7 @@ module.exports = {
     fetchGet,
     fetchPost,
     generateId,
-    generateMD5,
+    generatePasswordHash,
     addCredentialsToUrl,
     getBuffer: getBuffer,
     mergeDeep: mergeDeep,

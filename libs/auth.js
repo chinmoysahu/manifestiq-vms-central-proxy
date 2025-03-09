@@ -1,7 +1,7 @@
 const path = require('path')
 const fs = require('fs').promises
 const listLocation = path.join(process.cwd(), '/userCredentials.json');
-const { generateId, generateMD5, fetchGet } = require('./commonUtils.js')
+const { generateId, generatePasswordHash, fetchGet } = require('./commonUtils.js')
 const shopEndpoint = `https://licenses.shinobi.video/`
 
 async function overwrite(data) {
@@ -25,7 +25,7 @@ async function list() {
 async function login(username, password) {
     try {
         const currentList = await list();
-        const item = currentList.find(entry => entry.username === username && entry.password === generateMD5(password));
+        const item = currentList.find(entry => entry.username === username && entry.password === generatePasswordHash(password));
         if (!item) {
             return { ok: false, error: `No entry found for peerConnectKey: ${peerConnectKey}` };
         }
@@ -42,7 +42,7 @@ async function createNewUser(username, password, params = {}){
         let currentList = await list();
         const existingIndex = currentList.findIndex(item => item.username === username);
         const existingUser = currentList[existingIndex];
-        const hashedPassword = password ? generateMD5(password) : existingUser ? existingUser.password : generateMD5('password');
+        const hashedPassword = password ? generatePasswordHash(password) : existingUser ? existingUser.password : generatePasswordHash('password');
         const userInfo = Object.assign({ username, password: hashedPassword }, params)
         if (existingIndex !== -1) {
             currentList[existingIndex] = userInfo;
@@ -84,7 +84,7 @@ async function checkApiKey(code) {
 module.exports = {
     list,
     login,
-    generateMD5,
+    generatePasswordHash,
     checkApiKey,
     createNewUser,
     deleteUser,

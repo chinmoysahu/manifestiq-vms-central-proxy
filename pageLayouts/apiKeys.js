@@ -127,6 +127,14 @@ module.exports = (config,lang) => {
                               name: lang['Can Delete Videos'],
                               value: 'delete_videos',
                           },
+                          {
+                              name: lang['Can View Alarms'],
+                              value: 'get_alarms',
+                          },
+                          {
+                              name: lang['Can Edit Alarms'],
+                              value: 'edit_alarms',
+                          },
                       ]
                    },
                    {
