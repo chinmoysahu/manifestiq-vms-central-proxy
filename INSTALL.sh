@@ -103,7 +103,7 @@ if [ ! -d "mgmt" ]; then
 else
     echo "!-----------------------------------!"
     echo "Shinobi already downloaded."
-    cd Shinobi
+    cd mgmt
 fi
 # # start the installer in the main app (or start shinobi if already installed)
 # echo "*-----------------------------------*"
