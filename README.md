@@ -86,5 +86,6 @@ Review the `docs` folder of this repository.
     - Deleting a Monitor
 - RECORDINGS.md
     - Information about how to review recorded footage.
+
 - MANUAL-INSTALL.md
     - Steps to install the Management Server without the Automatic installation method.
