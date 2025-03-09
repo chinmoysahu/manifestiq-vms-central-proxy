@@ -44,6 +44,7 @@ if [ ! -d "mgmt" ]; then
                 exit 1
             fi
         fi
+        apt install zip
         # Check if Git is needed
         if [ ! -x "$(command -v git)" ]; then
             # Check if Ubuntu
