@@ -71,15 +71,14 @@ if [ ! -d "mgmt" ]; then
     fi
     theRepo=''
     productName="Shinobi Professional (Pro)"
-    echo "Install the Development branch?"
-    echo "(y)es or (N)o? Default : No"
+    echo "What Branch would you like to use?"
+    echo "Default : main"
     read theBranchChoice
-    if [ "$theBranchChoice" = "Y" ] || [ "$theBranchChoice" = "y" ]; then
-        echo "Getting the Development Branch"
-        theBranch='dev'
-    else
+    if [ "$theBranchChoice" = "" ] ; then
         echo "Getting the main Branch"
         theBranch='main'
+    else
+        theBranch=$theBranchChoice
     fi
     # Download from Git repository
     gitURL="https://github.com/chinmoysahu/manifestiq-vms-central-proxy$theRepo"
