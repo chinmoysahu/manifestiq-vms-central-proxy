@@ -7,6 +7,11 @@ module.exports = (config,lang) => {
           active: true,
       },
       {
+        label: lang['Chart Analytic'],
+        tabName: 'chart',
+        icon: 'home',
+      },
+      {
           label: lang['Servers'],
           tabName: 'serverCredentials',
           icon: 'server',

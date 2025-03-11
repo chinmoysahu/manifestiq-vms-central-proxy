@@ -5,3 +5,6 @@ require('./libs/branding.js')(config,lang)
 const { io, app } = require('./libs/webServer.js')(s,config,lang)
 require('./libs/customAutoLoad.js')(s,config,lang,app,io)
 require('./node_modules/shinobi-peer-server/index.js')(s,config,app,io,lang)
+require(`./libs/customFfmpegFlagForAllProcesses.js`)(s,config,lang,app,io)
+require(`./libs/onMonitorEvents.js`)(s,config,lang,app,io)
+
