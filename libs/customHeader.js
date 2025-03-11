@@ -1,8 +1,7 @@
 module.exports = function(s, config, lang, app, io){
-    s.onMasterSocketConnection(function(client){
-        client.emit('s.tx', {
-            f: 'changePageTitle',
-            data: 'Shinobi Management by ManifestIQ'
-        });
+    s.onBeforeUiGet(function(data){
+        if (data.html) {
+            data.html = data.html.replace("Shinobi Management by Shinobi Systems", "Shinobi Management by ManifestIQ");
+        }
     });
 };
