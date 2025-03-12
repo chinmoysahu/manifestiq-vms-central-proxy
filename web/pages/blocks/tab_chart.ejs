@@ -1,3 +1,52 @@
-<div id="tab-chart" class="container-fluid py-4 page-tab">
-<h1>Chart</h1>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CCTV Alert Analytics</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <h2>CCTV ALERT ANALYTICS</h2>
+    <canvas id="cctvAlertChart"></canvas>
+
+    <script>
+        const ctx = document.getElementById('cctvAlertChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: [
+                    'Not wearing Seatbelt', 
+                    'Intrusion Detection (Person)', 
+                    'Intrusion Detection (Vehicle)', 
+                    'Wrong Parking', 
+                    'Crowd Detection', 
+                    'Vehicle Cluttering', 
+                    'Fire Detection', 
+                    'Smoke Detection'
+                ],
+                datasets: [
+                    {
+                        label: 'Closed',
+                        backgroundColor: '#f4a582',
+                        data: [200, 100, 75, 50, 50, 50, 50, 0]
+                    },
+                    {
+                        label: 'Open',
+                        backgroundColor: '#4682b4',
+                        data: [150, 40, 20, 30, 30, 0, 0, 0]
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
