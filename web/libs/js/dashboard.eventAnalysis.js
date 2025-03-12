@@ -1,4 +1,14 @@
 $(document).ready(function () {
+    var theWindow = $('#tab-event-analysis')
+    addOnTabOpen('eventAnalysis', function () {
+
+    })
+    addOnTabReopen('eventAnalysis', function () {
+
+    })
+    addToEventHandler('onDashboardReady', function(){
+
+    })
     // Function to Load Event Analysis Data
     function loadEventAnalysisData() {
         $.get('/api/event-analysis', function (data) {
