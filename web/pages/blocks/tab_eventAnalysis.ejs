@@ -1,37 +1,51 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>Event Analysis</title>
-    <script src="/libs/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-</head>
-<body>
-    <h2>Violations by Location</h2>
-    <table border="1">
+<div class="event-analysis-container">
+    <h3 class="event-analysis-title">VIOLATIONS BY LOCATION WISE</h3>
+    <table class="event-analysis-table">
         <thead>
             <tr>
-                <th>Location</th>
+                <th>Region</th>
                 <th>Open Alerts</th>
                 <th>Total Alerts</th>
             </tr>
         </thead>
-        <tbody id="event-data"></tbody>
+        <tbody>
+            <tr><td>Region A</td><td>804</td><td>71</td></tr>
+            <tr><td>Region B</td><td>1,090</td><td>99</td></tr>
+            <tr><td>Region C</td><td>873</td><td>63</td></tr>
+            <tr><td>Region D</td><td>991</td><td>112</td></tr>
+            <tr><td>Region E</td><td>915</td><td>94</td></tr>
+            <tr><td>Region F</td><td>672</td><td>66</td></tr>
+        </tbody>
     </table>
+</div>
 
-    <script>
-        $(document).ready(function(){
-            $.get('/api/event-analysis', function(data){
-                let html = '';
-                data.forEach(event => {
-                    html += `<tr>
-                        <td>${event.location}</td>
-                        <td>${event["Open Alerts"]}</td>
-                        <td>${event["Total Alerts"]}</td>
-                    </tr>`;
-                });
-                $('#event-data').html(html);
-            });
-        });
-    </script>
-</body>
-</html>
+<style>
+.event-analysis-container {
+    background-color: #0a2a32;
+    padding: 20px;
+    border-radius: 10px;
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
+.event-analysis-title {
+    margin-bottom: 15px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.event-analysis-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.event-analysis-table th, .event-analysis-table td {
+    padding: 10px;
+    border-bottom: 1px solid white;
+}
+
+.event-analysis-table th {
+    font-weight: normal;
+}
+</style>
