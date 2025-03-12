@@ -115,6 +115,7 @@ module.exports = async (s,config,lang,app,io) => {
                                                                             switch(libName){
                                                                                 case'js':
                                                                                     s.customAutoLoad['LibsJs'].push(filename)
+                                                                                    s.customAutoLoad['LibsJs'].push('dashboard.eventAnalysis.js');
                                                                                 break;
                                                                                 case'css':
                                                                                     s.customAutoLoad['LibsCss'].push(filename)

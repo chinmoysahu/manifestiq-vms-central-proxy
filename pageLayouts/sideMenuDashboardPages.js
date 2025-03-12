@@ -160,6 +160,11 @@ module.exports = (config,lang) => {
           addUl: true
       },
       {
+        label: lang['Event Analysis'],
+        tabName: 'eventAnalysis',
+        icon: 'bar-chart',
+      },
+      {
           label: lang['Monitor States'],
           tabName: 'monitorStates',
           icon: 'align-right',

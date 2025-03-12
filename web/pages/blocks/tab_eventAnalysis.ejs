@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Event Analysis</title>
+    <script src="/libs/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <h2>Violations by Location</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Location</th>
+                <th>Open Alerts</th>
+                <th>Total Alerts</th>
+            </tr>
+        </thead>
+        <tbody id="event-data"></tbody>
+    </table>
+
+    <script>
+        $(document).ready(function(){
+            $.get('/api/event-analysis', function(data){
+                let html = '';
+                data.forEach(event => {
+                    html += `<tr>
+                        <td>${event.location}</td>
+                        <td>${event["Open Alerts"]}</td>
+                        <td>${event["Total Alerts"]}</td>
+                    </tr>`;
+                });
+                $('#event-data').html(html);
+            });
+        });
+    </script>
+</body>
+</html>
