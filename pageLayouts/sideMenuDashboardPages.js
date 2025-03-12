@@ -7,7 +7,7 @@ module.exports = (config,lang) => {
           active: true,
       },
       {
-        label: lang['Chart Analytic'],
+        label: 'Chart Analytic',
         tabName: 'chart',
         icon: 'home',
       },
