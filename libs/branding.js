@@ -2,8 +2,8 @@ module.exports = function(config,lang){
     const { setDefaultIfUndefined } = require('./utils.js');
     setDefaultIfUndefined(config, 'showPoweredByShinobi', true);
     setDefaultIfUndefined(config, 'shinobiManagement', 'Shinobi Management');
-    setDefaultIfUndefined(config, 'byShinobiSystems', 'by Shinobi Systems');
-    setDefaultIfUndefined(config, 'poweredByShinobi', 'Powered by Shinobi.Systems');
+    setDefaultIfUndefined(config, 'byShinobiSystems', 'by ManifestIQ');
+    setDefaultIfUndefined(config, 'poweredByShinobi', 'Powered by ManifestIQ');
     setDefaultIfUndefined(config, 'showLoginCardHeader', true);
     setDefaultIfUndefined(config, 'webFavicon', 'libs/img/icon/favicon.ico');
     setDefaultIfUndefined(config, 'logoLocationAppleTouchIcon', 'libs/img/icon/apple-touch-icon.png');
